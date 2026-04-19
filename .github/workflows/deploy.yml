@@ -26,6 +26,10 @@ jobs:
           chmod +x scripts/install-mkdocs.sh
           scripts/install-mkdocs.sh
 
+      - name: Build MkDocs
+        run: |
+          mkdocs build --strict
+
       # Best Practice: State Check & Provision (Idempotency)
       - name: Ensure Cloudflare Pages Project Exists
         env:
