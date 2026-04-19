@@ -21,11 +21,9 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: pip install mkdocs mkdocs-material
-
-      - name: Build MkDocs
-        run: mkdocs build
+      - name: Install mkdocs-material dependencies
+        run: |
+          scripts/install-mkdocs.sh
 
       # Best Practice: State Check & Provision (Idempotency)
       - name: Ensure Cloudflare Pages Project Exists
