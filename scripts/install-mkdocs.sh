@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pip install \
+    "mkdocs>=1.5,<2.0" \
     "mkdocs-material>=9.0.2" \
     mkdocs-toggle-sidebar-plugin \
     mkdocs-macros-plugin \
