@@ -27,21 +27,13 @@ jobs:
       - name: Build MkDocs
         run: mkdocs build
 
-# Best Practice: State Check & Provision (Idempotency)
+      # Best Practice: State Check & Provision (Idempotency)
       - name: Ensure Cloudflare Pages Project Exists
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          echo "Checking target state on Cloudflare..."
-          
-          # Query API to get project's lists. If project found, skip. If not, then creating new.
-          if npx wrangler pages project list | grep -q "my-private-docs"; then
-            echo "State matches: Project 'my-private-docs' already exists. Skipping creation."
-          else
-            echo "State mismatch: Project missing. Provisioning now..."
-            npx wrangler pages project create my-private-docs --production-branch main
-          fi
+          scripts/checking-state.sh
 
       - name: Deploy to Cloudflare Pages via Wrangler
         uses: cloudflare/wrangler-action@v3
