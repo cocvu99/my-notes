@@ -23,6 +23,7 @@ jobs:
 
       - name: Install mkdocs-material dependencies
         run: |
+          chmod +x scripts/install-mkdocs.sh
           scripts/install-mkdocs.sh
 
       # Best Practice: State Check & Provision (Idempotency)
