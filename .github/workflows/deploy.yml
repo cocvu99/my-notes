@@ -27,11 +27,10 @@ jobs:
       - name: Build MkDocs
         run: mkdocs build
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      # Using Wrangler CLI to automate creating Cloudflare Pages
+      - name: Deploy to Cloudflare Pages via Wrangler
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'my-private-docs'
-          directory: 'site'
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy site --project-name="my-private-docs"
