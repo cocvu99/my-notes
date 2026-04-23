@@ -1,7 +1,6 @@
 site_name: My Interview & Study Notes
 
 theme:
-
   name: material
 
   features:
@@ -15,7 +14,6 @@ theme:
     accent: indigo
 
 markdown_extensions:
-
   - pymdownx.highlight:
       anchor_linenums: true
 
@@ -25,3 +23,7 @@ markdown_extensions:
 
   - pymdownx.arithmatex:
       generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
