@@ -13,7 +13,7 @@ echo "Checking state for project '${PROJECT_NAME}' on Cloudflare Pages..."
 # Use `wrangler pages project get` which fails if the project doesn't exist.
 # This is more direct than listing all projects and grepping.
 if npx wrangler pages project get "${PROJECT_NAME}" > /dev/null 2>&1; then
-  echo " Project '${PROJECT_NAME}' already exists. No action needed."
+  echo "Project '${PROJECT_NAME}' already exists. No action needed."
 else
   echo "Project '${PROJECT_NAME}' not found. Creating it now..."
   npx wrangler pages project create "${PROJECT_NAME}" --production-branch "${PRODUCTION_BRANCH}"
