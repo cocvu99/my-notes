@@ -1,5 +1,0 @@
-title: Algorithms & Data Structures # Rename menu appearance
-nav:
-  - array.md    # URL redirect title
-  - recursion.md
-  - string.md
