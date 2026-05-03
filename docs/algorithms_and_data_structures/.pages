@@ -1,5 +1,5 @@
 title: Algorithms & Data Structures # Rename menu appearance
 nav:
-  - array/array.md
-  - recursion/recursion.md
-  - string/string.md
+  - array.md
+  - recursion.md
+  - string.md
