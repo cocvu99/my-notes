@@ -1,6 +1,7 @@
-# Example 2: DevOps Engineer/DevSecOps Engineer
+# Example 2: 
 
-DevOps/DevSecOps
+Role: DevOps Engineer/DevSecOps Engineer
+Date: 260401
 
 ### Nhóm 1: Kubernetes (K8s) Core & Storage:
 
