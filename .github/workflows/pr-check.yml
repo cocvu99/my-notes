@@ -18,8 +18,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: pip install "mkdocs>=1.5,<2.0" mkdocs-material
+      - name: Install mkdocs-material dependencies
+        run: |
+          chmod +x scripts/install-mkdocs.sh
+          scripts/install-mkdocs.sh
 
       - name: Validate MkDocs Build (Strict Mode)
         # This step will fail if warning nav or deadlink
