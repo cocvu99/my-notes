@@ -1,0 +1,26 @@
+name: PR Check - MkDocs Build
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install "mkdocs>=1.5,<2.0" mkdocs-material
+
+      - name: Validate MkDocs Build (Strict Mode)
+        # This step will fail if warning nav or deadlink
+        run: mkdocs build --strict
