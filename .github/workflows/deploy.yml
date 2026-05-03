@@ -25,7 +25,7 @@ jobs:
         run: |
           chmod +x scripts/install-mkdocs.sh
           scripts/install-mkdocs.sh
-
+    
       - name: Build MkDocs
         run: |
           mkdocs build --strict

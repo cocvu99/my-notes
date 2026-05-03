@@ -1,0 +1,5 @@
+title: CS Fundamentals # Rename menu appearance
+nav:
+  - networking.md    # URL redirect title: /cs-fundamentals/networking/
+  - operating-system.md
+  - database.md
