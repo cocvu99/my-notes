@@ -32,9 +32,9 @@ plugins:
 
 nav:
   - Trang chủ: index.md
-  - Algorithms: algorithms_and_data_structures/
-  - CS Fundamentals: computer_science_fundamentals/ 
-  - Interviews: interviews/
+  - Algorithms: algorithms_and_data_structures
+  - CS Fundamentals: computer_science_fundamentals
+  - Interviews: interviews
 
 extra_javascript:
   - javascripts/config.js
