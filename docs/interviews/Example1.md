@@ -1,6 +1,4 @@
-# CMC - Global
-
-DevOps Engineer
+# Example 1: DevOps Engineer
 
 1. Hãy mô tả công việc trong dự án gần đây em đang làm? 
 
