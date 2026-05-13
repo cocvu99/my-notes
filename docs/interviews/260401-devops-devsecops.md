@@ -122,7 +122,7 @@ Sau khi chạy lệnh trên Kubernetes sẽ thực hiện luồng công việc s
 Định nghĩa/So sánh
 | Tên/Tiêu Chí | Class (Lớp) | Object (Đối tượng) |
 | Là gì | Bản thiết kế/khuôn mẫu | Thực thể được tạo ra từ bản thiết kế đó |
-| Tồn tại | Chỉ trên lý thuyết (code) | Tồn tại thật trong bộ nhớ (RAM) |
+| Tồn tại | Chỉ trên lý thuyết (code) (chiếm 1 lượng nhỏ RAM) | Tồn tại thật trong bộ nhớ (RAM) |
 | Số lượng | Định nghĩa 1 lần | Tạo ra bao nhiêu tùy ý |
 | Ví dụ | Bản vẽ thiết kế ngôi nhà | Những ngôi nhà được xây từ bản vẽ đó |
 
@@ -159,7 +159,7 @@ print(db_server.is_running)    # False
 ```
 
 Điểm mấu chốt cần nhấn mạnh khi phỏng vấn
-- **Class không chiếm RAM** — chỉ là định nghĩa trong code. Object mới thực sự được cấp phát bộ nhớ khi khởi tạo (`new`/ `__init__`).
+- **Class không chiếm RAM nhiều** — Class vẫn chiếm một lượng RAM nhỏ để lưu trữ metadata và phương thức. Object mới thực sự được cấp phát bộ nhớ khi khởi tạo (`new`/ `__init__`).
 - **Một class -> nhiều object độc lập** — `web_server` và `db_server` cùng "kiểu" nhưng có state (trạng thái) hoàn toàn riêng biệt.
 - **Instantiation** — quá trình tạo object từ class gọi là *khởi tạo (instantiate)*. Đây là từ kỹ thuật bạn nên dùng trong phỏng vấn.
 
