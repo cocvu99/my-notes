@@ -277,6 +277,7 @@ shard_id = hash(user_id) % total_shards
 # Ưu: phân phối đều, tránh hotspot
 # Nhược: khó thêm shard (phải rehash toàn bộ data)
 ```
+> *Lưu ý* hàm `hash()` mặc định trong Python không có tính nhất quán (deterministic) giữa các lần chạy hoặc các process khác nhau do cơ chế *hash randomization*. Trong thực tế khi triển khai sharding, nên sử dụng các thuật toán băm ổn định như **MD5** hoặc **CRC32** để đảm bảo dữ liệu luôn được ánh xạ vào đúng shard.
 
 2. **Range-based Sharding** — chia theo khoảng giá trị
 ```
