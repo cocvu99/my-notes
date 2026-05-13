@@ -121,6 +121,7 @@ Sau khi chạy lệnh trên Kubernetes sẽ thực hiện luồng công việc s
 
 Định nghĩa/So sánh
 | Tên/Tiêu Chí | Class (Lớp) | Object (Đối tượng) |
+|---|---|---|
 | Là gì | Bản thiết kế/khuôn mẫu | Thực thể được tạo ra từ bản thiết kế đó |
 | Tồn tại | Chỉ trên lý thuyết (code) (chiếm 1 lượng nhỏ RAM) | Tồn tại thật trong bộ nhớ (RAM) |
 | Số lượng | Định nghĩa 1 lần | Tạo ra bao nhiêu tùy ý |
