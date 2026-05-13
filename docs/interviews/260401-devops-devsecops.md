@@ -113,7 +113,84 @@ Sau khi chạy lệnh trên Kubernetes sẽ thực hiện luồng công việc s
 ### Nhóm 5: Programming, Database & Architecture
 18. *Backend Scalability*: Làm sao bạn đảm bảo/thiết kế được một hệ thống backend có khả năng mở rộng (scalable) để chịu tải cao?
 
+---
+
 19. *SQL*: Phân biệt sự khác nhau cơ bản giữa mệnh đề JOIN và UNION trong SQL. 
+
+Sự khác nhau
+
+| Tên/Tiêu Chí | JOIN | UNION |
+|---|---|---|
+| Chiều kết hợp         | Kết hợp theo chiều ngang (thêm cột) | Kết hợp theo chiều dọc (thêm hàng) |
+| Điều kiện             | Cần điều kiện `ON` để khớp dữ liệu  | Cần cùng số cột và kiểu dữ liệu tương thích |
+| Dữ liệu gốc           | Từ nhiều bảng liên quan nhau        | Từ nhiều query có cùng cấu trúc |
+| Tính lặp (Duplicate)  | Giữ nguyên                          | `UNION` loại bỏ, `UNION ALL` giữ lại |
+
+**Ví dụ**
+
+Data:
+
+```
+
+Table: orders          Table: customers
++----+-------------+   +----+----------+
+| id | customer_id |   | id | name     |
++----+-------------+   +----+----------+
+|  1 |           1 |   |  1 | Alice    |
+|  2 |           2 |   |  2 | Bob      |
++----+-------------+   +----+----------+
+
+```
+
+**JOIN — ghép cột, mở rộng thông tin:**
+
+```sql
+
+SELECT orders.id AS order_id, customers.name
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.id;
+
+-- Kết quả: mỗi row chứa data từ CẢ HAI bảng
++----------+-------+
+| order_id | name  |
++----------+-------+
+|        1 | Alice |
+|        2 | Bob   |
++----------+-------+
+
+```
+
+**UNION — ghép hàng, gộp kết quả:**
+
+```sql
+
+-- Ví dụ thực tế: lấy tất cả user từ 2 hệ thống (migration / microservice)
+SELECT id, name, 'system_A' AS source FROM users_system_a
+UNION
+SELECT id, name, 'system_B' AS source FROM users_system_b;
+
+-- Kết quả: các hàng được xếp CHỒNG lên nhau
++----+-------+----------+
+| id | name  | source   |
++----+-------+----------+
+|  1 | Alice | system_A |
+|  2 | Bob   | system_A |
+|  1 | Carol | system_B |
++----+-------+----------+
+
+```
+
+**Các loại `JOIN` cần biết thêm:**
+
+```sql
+INNER JOIN  -- Chỉ lấy rows khớp ở CẢ HAI bảng
+LEFT JOIN   -- Lấy tất cả bảng trái, bảng phải NULL nếu không khớp
+RIGHT JOIN  -- Ngược lại LEFT JOIN
+FULL JOIN   -- Lấy tất cả, NULL ở chỗ không khớp
+CROSS JOIN  -- Tích Descartes (mọi tổ hợp) — dùng rất ít
+```
+
+--- 
 
 20. *OOP Fundamentals*: Trong lập trình hướng đối tượng, Class (Lớp) và Object (Đối tượng) khác nhau như thế nào?
 
@@ -162,13 +239,87 @@ print(db_server.is_running)    # False
 
 Điểm mấu chốt cần nhấn mạnh khi phỏng vấn
 - **Class không chiếm RAM nhiều** — Class vẫn chiếm một lượng RAM nhỏ để lưu trữ metadata và phương thức. Object mới thực sự được cấp phát bộ nhớ khi khởi tạo (`new`/ `__init__`).
+
 - **Một class -> nhiều object độc lập** — `web_server` và `db_server` cùng "kiểu" nhưng có state (trạng thái) hoàn toàn riêng biệt.
+
 - **Instantiation** — quá trình tạo object từ class gọi là *khởi tạo (instantiate)*. Đây là từ kỹ thuật bạn nên dùng trong phỏng vấn.
 
 Tóm tắt:
 > *"Class là bản thiết kế định nghĩa thuộc tính (attributes) và hành vi (methods) của một loại đối tượng. Object là instance cụ thể được tạo ra từ class đó, chiếm bộ nhớ thực và có trạng thái riêng. Từ một class, ta có thể instantiate nhiều object độc lập nhau."*
 
+---
+
 21. *Database Sharding*: Sharding là gì? Khi nào thì hệ thống cần áp dụng kỹ thuật sharding?
+
+Sharding là gì?
+
+**Sharding** là kỹ thuật chia một database lớn thành nhiều phần nhỏ hơn gọi là **shard**, mỗi shard là một database độc lập chứa **một tập con của data**, thường chạy trên server riêng.
+
+```
+                    ┌─────────────────┐
+  Request ──────────│  Shard Router   │
+                    └────────┬────────┘
+           ┌─────────────────┼──────────────────┐
+     Shard 0            Shard 1              Shard 2
+  [user_id 0–999]   [user_id 1000–1999]  [user_id 2000+]
+  PostgreSQL #1      PostgreSQL #2         PostgreSQL #3
+
+```
+
+Các chiến lược sharding phổ biến:
+
+1. **Hash-based Sharding** — dùng hàm hash để phân phối đều các database node
+
+```python
+shard_id = hash(user_id) % total_shards
+# user_id=1001 → shard 1
+# user_id=1002 → shard 2
+# Ưu: phân phối đều, tránh hotspot
+# Nhược: khó thêm shard (phải rehash toàn bộ data)
+```
+> *Lưu ý* hàm `hash()` mặc định trong Python không có tính nhất quán (deterministic) giữa các lần chạy hoặc các process khác nhau do cơ chế *hash randomization*. Trong thực tế khi triển khai sharding, nên sử dụng các thuật toán băm ổn định như **MD5** hoặc **CRC32** để đảm bảo dữ liệu luôn được ánh xạ vào đúng shard.
+
+2. **Range-based Sharding** — chia theo khoảng giá trị
+```
+Shard 0: user_id    1 → 1,000,000
+Shard 1: user_id    1,000,001 → 2,000,000
+Shard 2: user_id    2,000,001 → ...
+# Ưu: dễ query range, dễ thêm shard mới
+# Nhược: có thể hotspot nếu data không đều
+```
+3. **Directory-based Sharding** — lookup table quyết định shard
+```
+Lookup Table:
+user_id → shard
+alice   → shard_0
+bob     → shard_1
+# Ưu: linh hoạt nhất
+# Nhược: lookup table là SPOF, thêm 1 network hop
+```
+***Khi nào cần dùng Sharding?***
+
+Nên cân nhắc sharding khi:
+
+- **Single DB đã không thể scale up được nữa** — đã dùng máy cấu hình (CPU, RAM, ...) mạnh nhất rồi vẫn chậm
+
+- **Dataset quá lớn** — thường > vài trăm GB đến TB, query index không còn vừa RAM
+
+- **Write throughput quá cao** — Read Replica không giúp được vì bottleneck là write
+
+- **Yêu cầu về latency thấp** — sharding theo geography để data gần user hơn
+
+>***Sharding là phương án cuối cùng*** — trước đó hãy thử hết: indexing, query optimization, caching, Read Replicas, vertical scaling. Sharding tăng độ phức tạp rất nhiều cho hệ thống.
+
+**Nhược điểm của Sharding cần biết:**
+
+| Vấn đề | Giải thích |
+|---|---|
+| Cross-shard query | JOIN giữa 2 shard cực kỳ tốn kém, thường phải xử lý ở application layer |
+| Rebalancing | Thêm shard mới → phải redistribute data, downtime risk |
+| Transactions | ACID transaction qua nhiều shard rất khó, cần distributed transaction (2PC) |
+| Operational complexity | Nhiều DB instance hơn → monitoring, backup, failover phức tạp hơn |
+
+---
 
 ### Nhóm 6: Security & Network Isolation
 
