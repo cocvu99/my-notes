@@ -117,6 +117,54 @@ Sau khi chạy lệnh trên Kubernetes sẽ thực hiện luồng công việc s
 
 20. *OOP Fundamentals*: Trong lập trình hướng đối tượng, Class (Lớp) và Object (Đối tượng) khác nhau như thế nào?
 
+---Trả lời---
+
+Định nghĩa/So sánh
+| Tên/Tiêu Chí | Class (Lớp) | Object (Đối tượng) |
+| Là gì | Bản thiết kế/khuôn mẫu | Thực thể được tạo ra từ bản thiết kế đó |
+| Tồn tại | Chỉ trên lý thuyết (code) | Tồn tại thật trong bộ nhớ (RAM) |
+| Số lượng | Định nghĩa 1 lần | Tạo ra bao nhiêu tùy ý |
+| Ví dụ | Bản vẽ thiết kế ngôi nhà | Những ngôi nhà được xây từ bản vẽ đó |
+
+Ví dụ
+```python
+# CLASS: Bản thiết kế cho "Server"
+class Server:
+  def __init__(self, name, ip, cpu_cores):
+        self.name = name
+        self.ip = ip
+        self.cpu_cores = cpu_cores
+        self.is_running = False
+
+    def start(self):
+        self.is_running = True
+        print(f"{self.name} started!")
+
+    def stop(self):
+        self.is_running = False
+        print(f"{self.name} stopped!")
+
+# OBJECTS: Các server thực tế được tạo ra từ class Server
+web_server   = Server("web-01",  "10.0.0.1", 4)
+db_server    = Server("db-01",   "10.0.0.2", 8)
+cache_server = Server("cache-01","10.0.0.3", 2)
+
+# Mỗi object có trạng thái riêng, độc lập nhau
+web_server.start()   # web-01 started!
+db_server.stop()     # db-01 stopped!
+
+print(web_server.is_running)   # True
+print(db_server.is_running)    # False
+
+```
+
+Điểm mấu chốt cần nhấn mạnh khi phỏng vấn
+- **Class không chiếm RAM** — chỉ là định nghĩa trong code. Object mới thực sự được cấp phát bộ nhớ khi khởi tạo (`new`/ `__init__`).
+- **Một class -> nhiều object độc lập** — `web_server` và `db_server` cùng "kiểu" nhưng có state (trạng thái) hoàn toàn riêng biệt.
+- **Instantiation** — quá trình tạo object từ class gọi là *khởi tạo (instantiate)*. Đây là từ kỹ thuật bạn nên dùng trong phỏng vấn.
+
+Tóm tắt:
+> *"Class là bản thiết kế định nghĩa thuộc tính (attributes) và hành vi (methods) của một loại đối tượng. Object là instance cụ thể được tạo ra từ class đó, chiếm bộ nhớ thực và có trạng thái riêng. Từ một class, ta có thể instantiate nhiều object độc lập nhau."*
 
 21. *Database Sharding*: Sharding là gì? Khi nào thì hệ thống cần áp dụng kỹ thuật sharding?
 
