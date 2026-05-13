@@ -146,7 +146,7 @@ Table: orders          Table: customers
 
 ```sql
 
-SELECT orders.id, customers.name
+SELECT orders.id AS order_id, customers.name
 FROM orders
 INNER JOIN customers ON orders.customer_id = customers.id;
 
