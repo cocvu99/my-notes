@@ -120,6 +120,7 @@ Sau khi chạy lệnh trên Kubernetes sẽ thực hiện luồng công việc s
 ---Trả lời---
 
 Định nghĩa/So sánh
+
 | Tên/Tiêu Chí | Class (Lớp) | Object (Đối tượng) |
 |---|---|---|
 | Là gì | Bản thiết kế/khuôn mẫu | Thực thể được tạo ra từ bản thiết kế đó |
