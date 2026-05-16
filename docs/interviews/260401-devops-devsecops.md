@@ -5,7 +5,8 @@ Date: 260401
 
 ### Nhóm 1: Kubernetes (K8s) Core & Storage:
 
-1. *QoS & Scheduling*: Trong Kubernetes, ***requests*** đóng vai trò gì trong quá trình lập lịch (scheduling) cho Pod? Hãy giải thích mối liên hệ giữa requests, limits và các lớp Quality of Service (QoS classes).
+#### 1. *QoS & Scheduling*: 
+Trong Kubernetes, ***requests*** đóng vai trò gì trong quá trình lập lịch (scheduling) cho Pod? Hãy giải thích mối liên hệ giữa requests, limits và các lớp Quality of Service (QoS classes).
 
 Trả lời:
 
@@ -19,7 +20,8 @@ Trả lời:
 
     - **BestEffort**: Pod không có cấu hình requests và limits. Bị đuổi đầu tiên khi Node cạn tài nguyên.
 
-2. *Pod Startup Order*: Khi triển khai một ứng dụng kèm cơ sở dữ liệu, làm thế nào để đảm bảo Pod Database được khởi động và ở trạng thái sẵn sàng (ready) trước khi Pod Application bắt đầu chạy?
+#### 2. *Pod Startup Order*: 
+Khi triển khai một ứng dụng kèm cơ sở dữ liệu, làm thế nào để đảm bảo Pod Database được khởi động và ở trạng thái sẵn sàng (ready) trước khi Pod Application bắt đầu chạy?
 
 K8s mặc định khởi động các Pod song song. Để đảm bảo ứng dụng chỉ chạy khi database đã sẵn sàng, ta dùng Init Containers.
 
@@ -73,49 +75,67 @@ Sau khi chạy lệnh trên Kubernetes sẽ thực hiện luồng công việc s
 
 - **Bàn giao cho containers chính**: Ngay khoảnh khắc lệnh nc thành công (vòng lặp kết thúc, InitContainer exit với mã 0), Kubernetes lập tức khai tử cái container busybox này và chính thức khởi động container web-app-main. Lúc này, app của bạn có thể kết nối database khi triển khai.
 
-3. *Node Placement*: Làm thế nào để chỉ định một Pod chỉ được phép chạy trên các Node có gắn ổ cứng SSD?
+#### 3. *Node Placement*:
+Làm thế nào để chỉ định một Pod chỉ được phép chạy trên các Node có gắn ổ cứng SSD?
 
-4. *Downward API*: Làm sao để một tiến trình bên trong Pod có thể đọc được các thông tin metadata của chính Pod đó (như label, annotation, pod name, namespace)?
+#### 4. *Downward API*: 
+Làm sao để một tiến trình bên trong Pod có thể đọc được các thông tin metadata của chính Pod đó (như label, annotation, pod name, namespace)?
 
-5. *Data Migration*: Nêu các phương pháp để di chuyển dữ liệu từ một Persistent Volume (PV) cũ sang một Persistent Volume (PV) mới bên trong cùng một cluster?
+#### 5. *Data Migration*: 
+Nêu các phương pháp để di chuyển dữ liệu từ một Persistent Volume (PV) cũ sang một Persistent Volume (PV) mới bên trong cùng một cluster?
 
-6. *Volumes Lifecycle* : Trong Kubernetes, hãy phân biệt hai loại Volume là emptyDir và hostPath. Ý nghĩa, mục đích sử dụng và vòng đời (lifecycle) của dữ liệu trong từng loại này khác nhau như thế nào? 
+#### 6. *Volumes Lifecycle* :
+Trong Kubernetes, hãy phân biệt hai loại Volume là emptyDir và hostPath. Ý nghĩa, mục đích sử dụng và vòng đời (lifecycle) của dữ liệu trong từng loại này khác nhau như thế nào? 
 
 ### Nhóm 2: Helm & Application Deployment
 
-7. *Multi-environment Helm*: Dự án cần deploy trên nhiều môi trường (dev, staging, production) với các cấu hình khác nhau. Bạn sẽ tổ chức cấu trúc Helm Chart và quản lý các file values.yaml như thế nào để tái sử dụng code tốt nhất? 
+####  7. *Multi-environment Helm*: 
+Dự án cần deploy trên nhiều môi trường (dev, staging, production) với các cấu hình khác nhau. Bạn sẽ tổ chức cấu trúc Helm Chart và quản lý các file values.yaml như thế nào để tái sử dụng code tốt nhất? 
 
-8. *Helm Subchart / Config Reload*: Bạn đang dùng một Helm chart có chứa dependency là Redis. Làm thế nào để override (ghi đè) cấu hình của Redis từ file values.yaml của chart cha? Làm sao để cập nhật cấu hình (ConfigMap) cho Redis đang chạy mà không cần khởi động lại (restart) Pod? Liệu có thực hiện được không và tại sao?
+#### 8. *Helm Subchart / Config Reload*: 
+Bạn đang dùng một Helm chart có chứa dependency là Redis. Làm thế nào để override (ghi đè) cấu hình của Redis từ file values.yaml của chart cha? Làm sao để cập nhật cấu hình (ConfigMap) cho Redis đang chạy mà không cần khởi động lại (restart) Pod? Liệu có thực hiện được không và tại sao?
 
-9. *Helm Dependency Troubleshooting*: Khi triển khai (deploy) một Helm Chart, bạn gặp thông báo lỗi liên quan đến việc thiếu các dependencies hoặc version mismatch (sai lệch phiên bản). Bạn hãy nêu các bước để kiểm tra, cập nhật và xử lý triệt để vấn đề này? 
+#### 9. *Helm Dependency Troubleshooting*: 
+Khi triển khai (deploy) một Helm Chart, bạn gặp thông báo lỗi liên quan đến việc thiếu các dependencies hoặc version mismatch (sai lệch phiên bản). Bạn hãy nêu các bước để kiểm tra, cập nhật và xử lý triệt để vấn đề này? 
 
 ### Nhóm 3: Linux, Logging & Troubleshooting
 
-10. *CrashLoopBackOff*: Khi một Pod rơi vào trạng thái CrashLoopBackOff, các bước gỡ lỗi (troubleshooting) tuần tự của bạn là gì? Lệnh hoặc công cụ nào là hữu ích nhất trong bước đầu tiên?
+#### 10. *CrashLoopBackOff*: 
+Khi một Pod rơi vào trạng thái CrashLoopBackOff, các bước gỡ lỗi (troubleshooting) tuần tự của bạn là gì? Lệnh hoặc công cụ nào là hữu ích nhất trong bước đầu tiên?
 
-11. *Container Logging*: Tại sao việc ứng dụng ghi log trực tiếp ra chuẩn đầu ra stdout và stderr lại được coi là Best Practice khi chạy trong Container?
+#### 11. *Container Logging*: 
+Tại sao việc ứng dụng ghi log trực tiếp ra chuẩn đầu ra stdout và stderr lại được coi là Best Practice khi chạy trong Container?
 
-12. *Full Disk Production*: Hệ thống cảnh báo Server Production bị đầy dung lượng ổ cứng. Bạn sẽ dùng các lệnh Linux nào để xác định chính xác thư mục/file nào đang chiếm nhiều dung lượng nhất, và hướng xử lý tình huống này là gì?
+#### 12. *Full Disk Production*: 
+Hệ thống cảnh báo Server Production bị đầy dung lượng ổ cứng. Bạn sẽ dùng các lệnh Linux nào để xác định chính xác thư mục/file nào đang chiếm nhiều dung lượng nhất, và hướng xử lý tình huống này là gì?
 
-13. *Network Debug Flow*: Ứng dụng không thể kết nối đến dịch vụ của bên thứ ba (3rd party API). Nêu quy trình khoanh vùng lỗi mạng, các công cụ bạn sẽ sử dụng (như curl, telnet, traceroute, nslookup) và cách xử lý? 
+#### 13. *Network Debug Flow*: 
+Ứng dụng không thể kết nối đến dịch vụ của bên thứ ba (3rd party API). Nêu quy trình khoanh vùng lỗi mạng, các công cụ bạn sẽ sử dụng (như curl, telnet, traceroute, nslookup) và cách xử lý? 
 
-14. *Linux Cron Job*: Trong hệ điều hành Linux, làm thế nào để tạo và quản lý một tác vụ tự động chạy định kỳ (cron job)? Nêu các lệnh cơ bản và cú pháp để thiết lập thời gian cho một tác vụ.
+#### 14. *Linux Cron Job*: 
+Trong hệ điều hành Linux, làm thế nào để tạo và quản lý một tác vụ tự động chạy định kỳ (cron job)? Nêu các lệnh cơ bản và cú pháp để thiết lập thời gian cho một tác vụ.
 
 ### Nhóm 4: CI/CD & Automation
 
-15. *Git Workflow*: Phát hiện một developer vô tình commit và push code lỗi trực tiếp lên nhánh main/master. Bạn sẽ xử lý sự cố này như thế nào và làm sao để ngăn chặn điều này tái diễn?
+#### 15. *Git Workflow*: 
+Phát hiện một developer vô tình commit và push code lỗi trực tiếp lên nhánh main/master. Bạn sẽ xử lý sự cố này như thế nào và làm sao để ngăn chặn điều này tái diễn?
 
-16. *Terraform in CI/CD*: Làm thế nào để tích hợp và tự động hóa quá trình chạy Terraform vào trong một pipeline CI/CD?
+#### 16. *Terraform in CI/CD*: 
+Làm thế nào để tích hợp và tự động hóa quá trình chạy Terraform vào trong một pipeline CI/CD?
 *Hint: Một cách an toàn (như quản lý remote state, state lock, review plan)*
 
-17. *Jenkins Optimization*: Một Jenkins pipeline chạy mất quá nhiều thời gian để hoàn thành. Bạn có những chiến lược hoặc cấu hình nào để tối ưu hóa thời gian build và deploy? 
+#### 17. *Jenkins Optimization*: 
+Một Jenkins pipeline chạy mất quá nhiều thời gian để hoàn thành. Bạn có những chiến lược hoặc cấu hình nào để tối ưu hóa thời gian build và deploy? 
 
 ### Nhóm 5: Programming, Database & Architecture
-18. *Backend Scalability*: Làm sao bạn đảm bảo/thiết kế được một hệ thống backend có khả năng mở rộng (scalable) để chịu tải cao?
+#### 18. *Backend Scalability*: 
+Làm sao bạn đảm bảo/thiết kế được một hệ thống backend có khả năng mở rộng (scalable) để chịu tải cao?
+
+*Hint: Không được trả lời bằng cách đưa ra giải pháp ngay lập tức. Mà hãy làm rõ (clarify) vấn đề để hiểu rõ vấn đề*
 
 ---
 
-19. *SQL*: Phân biệt sự khác nhau cơ bản giữa mệnh đề JOIN và UNION trong SQL. 
+#### 19. *SQL*: Phân biệt sự khác nhau cơ bản giữa mệnh đề JOIN và UNION trong SQL. 
 
 Sự khác nhau
 
@@ -192,7 +212,8 @@ CROSS JOIN  -- Tích Descartes (mọi tổ hợp) — dùng rất ít
 
 --- 
 
-20. *OOP Fundamentals*: Trong lập trình hướng đối tượng, Class (Lớp) và Object (Đối tượng) khác nhau như thế nào?
+#### 20. *OOP Fundamentals*: 
+Trong lập trình hướng đối tượng, Class (Lớp) và Object (Đối tượng) khác nhau như thế nào?
 
 ---Trả lời---
 
@@ -249,7 +270,8 @@ Tóm tắt:
 
 ---
 
-21. *Database Sharding*: Sharding là gì? Khi nào thì hệ thống cần áp dụng kỹ thuật sharding?
+#### 21. *Database Sharding*: 
+Sharding là gì? Khi nào thì hệ thống cần áp dụng kỹ thuật sharding?
 
 Sharding là gì?
 
@@ -323,8 +345,10 @@ Nên cân nhắc sharding khi:
 
 ### Nhóm 6: Security & Network Isolation
 
-22. *Docker Root Privilege*: Khi phát hiện một Docker container đang chạy với quyền root, điều này gây ra rủi ro gì? Nêu các bước xử lý và các cách khác nhau (từ lúc build image đến lúc chạy runtime) để xử lý và áp dụng nguyên tắc đặc quyền tối thiểu (least privilege)? 
+#### 22. *Docker Root Privilege*: 
+Khi phát hiện một Docker container đang chạy với quyền root, điều này gây ra rủi ro gì? Nêu các bước xử lý và các cách khác nhau (từ lúc build image đến lúc chạy runtime) để xử lý và áp dụng nguyên tắc đặc quyền tối thiểu (least privilege)? 
 
-23. *Kubernetes Network Policies*: Trong Kubernetes, theo mặc định các Pod giao tiếp với nhau như thế nào? Làm sao để quản lý, giới hạn và cách ly lưu lượng mạng (network traffic) giữa các Pod hoặc giữa các Namespace khác nhau?
+#### 23. *Kubernetes Network Policies*: 
+Trong Kubernetes, theo mặc định các Pod giao tiếp với nhau như thế nào? Làm sao để quản lý, giới hạn và cách ly lưu lượng mạng (network traffic) giữa các Pod hoặc giữa các Namespace khác nhau?
 
 

@@ -1,6 +1,8 @@
-# Practice Problem
+# Array
 
-## Mandatory
+## Practice Problem
+
+### Mandatory
 - [LeetCode - 448: Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/)
 - [LeetCode - 303: Range Sum Query](https://leetcode.com/problems/range-sum-query-immutable/)
 - [LeetCode - 605: Can Place Flowers](https://leetcode.com/problems/can-place-flowers/)
