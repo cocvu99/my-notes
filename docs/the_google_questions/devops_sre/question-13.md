@@ -1,4 +1,4 @@
-# 18. High Availability (HA)
+# 13. High Availability (HA)
 
 Quá trình database failover diễn ra như thế nào trong một cụm High Availability (HA)?
 

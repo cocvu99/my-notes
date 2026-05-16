@@ -1,4 +1,4 @@
-# 10K concurrent requests problem
+# 5. 10K concurrent requests problem
 
 Bạn xử lý thế nào khi hệ thống gặp tình trạng traffic spike lên tới 10.000 concurrent requests?
 
