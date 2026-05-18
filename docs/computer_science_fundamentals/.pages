@@ -1,5 +1,8 @@
-title: CS Fundamentals # Rename menu appearance
+title: CS Fundamentals      # Rename menu appearance
 nav:
-  - networking.md    # URL redirect title: /cs-fundamentals/networking/
-  - operating-system.md
+  - data_structure.md
+  - algorithms.md
+  - oop.md                  # Object-Oriented Programming 
+  - operating_system.md
   - database.md
+  - networking.md           # URL redirect title: /cs-fundamentals/networking/
