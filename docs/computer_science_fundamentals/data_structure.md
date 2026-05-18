@@ -1,5 +1,9 @@
 # Data Structures: Building Blocks of Efficient Code
 
+***Cấu trúc dữ liệu: Những khối xây dựng cho mã nguồn hiệu quả***
+
+*Understanding data structures is paramount. Interviewers want to see if you can choose the right tool for the job. Think of them as your toolkit; knowing what each tool does and when to use it makes you a much more effective engineer.*
+
 ## Arrays:
 
 ## Linked Lists (Singly, Doubly, Circular):

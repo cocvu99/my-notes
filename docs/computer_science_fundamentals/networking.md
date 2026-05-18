@@ -1,4 +1,9 @@
 # Networking Fundamentals: Connecting the World
+***Các khái niệm cơ bản về Mạng máy tính: Kết nối thế giới***
+
+*In today's interconnected world, a grasp of networking basics is indispensable.*
+
+*Mọi ứng dụng hiện đại đều cần kết nối internet, vì vậy hiểu về cách dữ liệu di chuyển là rất quan trọng.*
 
 ## OSI Model / TCP/IP Model:
 
@@ -29,12 +34,12 @@ Focus on the practical implications of each layer (e.g., what happens at the App
 
 ## DNS:
 
-What is DNS and what is its role in web Browser?
+What is DNS and what is its role in web browsers?
 
 <details>
   <summary>Hint and Tips</summary>
   
-    Tip thêm: DNS (Domain Name System) giống như "danh bạ điện thoại" của internet. Nó giúp máy tính của bạn tìm được địa chỉ IP của một trang web từ tên miền dễ nhớ (ví dụ: https://www.google.com/search?q=google.com).
+    Tip thêm: DNS (Domain Name System) giống như "danh bạ điện thoại" của internet. Nó giúp máy tính của bạn tìm được địa chỉ IP của một trang web từ tên miền dễ nhớ (ví dụ: google.com).
   
 </details>
 
