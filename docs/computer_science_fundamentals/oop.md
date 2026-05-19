@@ -34,7 +34,7 @@
 - What does "many forms" mean in OOP? Explain method overloading and method overriding with examples.
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
 
     Tip thêm: Polymorphism có nghĩa là một đối tượng có thể mang nhiều hình thái khác nhau. Ví dụ: cùng một phương thức draw() nhưng khi gọi trên đối tượng Circle sẽ vẽ hình tròn, gọi trên Square sẽ vẽ hình vuông.
 
