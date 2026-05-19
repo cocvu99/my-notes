@@ -23,7 +23,7 @@
 - How does it promote code reuse? Explain different types of inheritance (e.g., single, multiple – if supported by the language).
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
 
     Tip thêm: Inheritance cho phép bạn tạo ra các lớp mới dựa trên các lớp hiện có, kế thừa các thuộc tính và phương thức. Hãy nghĩ đến mối quan hệ "is-a" (ví dụ: "Dog is-a Animal").
 
