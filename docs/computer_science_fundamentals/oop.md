@@ -12,7 +12,7 @@
  - What is it? How does it promote data hiding and modularity? (e.g., access modifiers like public, private, protected).
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
 
     Tip thêm: Encapsulation giống như việc bạn đóng gói một cỗ máy phức tạp vào một cái hộp, người dùng chỉ cần biết cách dùng các nút bấm bên ngoài mà không cần hiểu chi tiết bên trong. Điều này giúp bảo vệ dữ liệu và đơn giản hóa việc sử dụng.
 
