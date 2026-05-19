@@ -69,7 +69,7 @@
 - While not always a "fundamental," a basic understanding of common design patterns (e.g., Singleton, Factory, Observer) can show maturity. Be prepared to explain what they solve.
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
 
     Tip thêm: Design patterns là những giải pháp đã được kiểm chứng cho các vấn đề thiết kế phần mềm phổ biến. Việc bạn biết về chúng cho thấy bạn đã từng tìm hiểu hoặc đối mặt với các vấn đề kiến trúc hệ thống thực tế.
     
