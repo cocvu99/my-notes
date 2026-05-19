@@ -58,7 +58,7 @@
 - Explain constructors and destructors (or garbage collection mechanisms).
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
 
     Tip thêm: Class là "bản thiết kế" cho một ngôi nhà, còn object là "ngôi nhà thực tế" được xây dựng từ bản thiết kế đó.
 
