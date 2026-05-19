@@ -9,7 +9,7 @@
 
 ### Encapsulation: 
 
-- Encapsulation: What is it? How does it promote data hiding and modularity? (e.g., access modifiers like public, private, protected).
+ - What is it? How does it promote data hiding and modularity? (e.g., access modifiers like public, private, protected).
 
 <details>
   <summary>Hint and Tips</summary>
