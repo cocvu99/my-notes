@@ -45,7 +45,7 @@
 - How does it simplify complex systems by focusing on essential details? Discuss abstract classes and interfaces.
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
 
     Tip thêm: Abstraction là việc bạn chỉ thể hiện những gì cần thiết và ẩn đi những chi tiết phức tạp. Hãy nghĩ về giao diện điều khiển của ô tô, bạn chỉ cần biết cách dùng vô lăng, chân ga, chân phanh mà không cần hiểu về động cơ bên trong.
 
