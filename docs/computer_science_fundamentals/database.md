@@ -8,7 +8,7 @@
 - When would you choose one over the other? Give examples of common use cases for each.
 
 <details>
-  <summary>Hint and Tips</summary>
+  <summary>Hints and Tips</summary>
   
     Tip thêm: SQL database mạnh về tính nhất quán và các mối quan hệ phức tạp (ví dụ: hệ thống ngân hàng). NoSQL thì linh hoạt hơn, phù hợp cho dữ liệu phi cấu trúc và cần mở rộng nhanh (ví dụ: mạng xã hội, IoT).
 
