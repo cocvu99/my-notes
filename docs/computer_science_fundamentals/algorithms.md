@@ -55,7 +55,7 @@
 
 - Analyze the time and space complexity of simple algorithms (e.g., iterating through an array, nested loops).
 
-- Understand common complexities: O(1), O(logn), O(n), O(nlogn), O(n2), O(2n), O(n).
+- Understand common complexities: O(1), O(logn), O(n), O(nlogn), O(n^2), O(2^n), O(n!).
 
 <details>
   <summary>Hints and Tips</summary>
