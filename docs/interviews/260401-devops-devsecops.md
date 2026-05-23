@@ -116,6 +116,36 @@ Hệ thống cảnh báo Server Production bị đầy dung lượng ổ cứng.
 #### 14. *Linux Cron Job*: 
 Trong hệ điều hành Linux, làm thế nào để tạo và quản lý một tác vụ tự động chạy định kỳ (cron job)? Nêu các lệnh cơ bản và cú pháp để thiết lập thời gian cho một tác vụ.
 
+Trong Linux, dịch vụ chạy ngầm chịu trách nhiệm theo dõi thời gian và kích hoạt các tác vụ được gọi là `cron daemon`. Để tương tác với dịch vụ này và cấu hình các tác vụ cá nhân, chúng ta sử dụng công cụ có tên là `crontab` (cron table).
+
+- Các thao tác cơ bản:
+
+  - Mở trình soạn thảo để thêm/sửa tác vụ: Chạy lệnh `crontab -e`.
+
+  - Xem danh sách các tác vụ đang có: Chạy lệnh `crontab -l`.
+
+  - Xóa toàn bộ các tác vụ hiện tại: Chạy lệnh crontab -r (nên dùng thêm flag -i để xác nhận trước khi xóa).
+
+- Cú pháp thiết lập thời gian (Cron Expression):
+
+Một dòng cấu hình cron job tiêu chuẩn bao gồm 5 trường (fields) thời gian, theo sau là đường dẫn đến lệnh hoặc script cần chạy. Cấu trúc 5 trường đó (từ trái qua phải) đại diện cho:
+
+  1. Minute (Phút): 0 - 59
+
+  2. Hour (Giờ): 0 - 23
+
+  3. Day of month (Ngày trong tháng): 1 - 31
+
+  4. Month (Tháng): 1 - 12
+
+  5. Day of week (Ngày trong tuần): 0 - 7 (với 0 và 7 đều là Chủ nhật)
+
+Ví dụ: Nếu bạn muốn chạy file `backup.sh` vào lúc 2:30 sáng mỗi ngày, cú pháp sẽ là:
+
+```bash
+30 2 * * * /path/to/backup.sh
+```
+
 ### Nhóm 4: CI/CD & Automation
 
 #### 15. *Git Workflow*: 
@@ -136,7 +166,8 @@ Làm sao bạn đảm bảo/thiết kế được một hệ thống backend có
 
 ---
 
-#### 19. *SQL*: Phân biệt sự khác nhau cơ bản giữa mệnh đề JOIN và UNION trong SQL. 
+#### 19. *SQL*: 
+Phân biệt sự khác nhau cơ bản giữa mệnh đề JOIN và UNION trong SQL. 
 
 Sự khác nhau
 
