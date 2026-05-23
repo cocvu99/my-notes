@@ -124,7 +124,7 @@ Trong Linux, dịch vụ chạy ngầm chịu trách nhiệm theo dõi thời gi
 
   - Xem danh sách các tác vụ đang có: Chạy lệnh `crontab -l`.
 
-  - Xóa toàn bộ các tác vụ hiện tại: Chạy lệnh `crontab -r`.
+  - Xóa toàn bộ các tác vụ hiện tại: Chạy lệnh crontab -r (nên dùng thêm flag -i để xác nhận trước khi xóa).
 
 - Cú pháp thiết lập thời gian (Cron Expression):
 
