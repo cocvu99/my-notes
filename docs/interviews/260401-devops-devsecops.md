@@ -128,7 +128,7 @@ Trong Linux, dịch vụ chạy ngầm chịu trách nhiệm theo dõi thời gi
 
 - Cú pháp thiết lập thời gian (Cron Expression):
 
-Một dòng cấu hình cron job tiêu chuẩn bao gồm 5 dấu sao * liên tiếp, theo sau là đường dẫn đến lệnh hoặc script cần chạy. Cấu trúc 5 dấu sao đó (từ trái qua phải) đại diện cho:
+Một dòng cấu hình cron job tiêu chuẩn bao gồm 5 trường (fields) thời gian, theo sau là đường dẫn đến lệnh hoặc script cần chạy. Cấu trúc 5 trường đó (từ trái qua phải) đại diện cho:
 
   1. Minute (Phút): 0 - 59
 
