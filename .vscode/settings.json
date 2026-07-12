@@ -1,0 +1,6 @@
+{
+  "yaml.customTags": [
+    "!!python/name:pymdownx.superfences.fence_code_format",
+    "!!python/name:pymdownx.superfences.fence_mermaid_custom"
+  ]
+}
