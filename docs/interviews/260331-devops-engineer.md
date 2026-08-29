@@ -2,8 +2,6 @@
 
 Role: DevOps Engineer
 
-Date: 260331
-
 1. Hãy mô tả công việc trong dự án gần đây em đang làm? 
 
 2. Em có kinh nghiệm với Prometheus và Grafana chưa? Làm sao dashboard Grafana có được các thông số như network traffic, CPU basic, RAM/Memory

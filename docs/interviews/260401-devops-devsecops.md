@@ -2,8 +2,6 @@
 
 Role: DevOps Engineer/DevSecOps Engineer
 
-Date: 260401
-
 ### Nhóm 1: Kubernetes (K8s) Core & Storage:
 
 #### 1. *QoS & Scheduling*: 
