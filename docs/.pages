@@ -2,4 +2,6 @@ nav:
   - index.md
   - CS Fundamentals: computer_science_fundamentals
   - Algorithms & Data Structures: dsa
+  - Docker: docker
+  - Kubernetes: kubernetes
   - The Google Question: the_google_questions

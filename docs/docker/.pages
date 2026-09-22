@@ -1,0 +1,4 @@
+title: Docker      # Rename menu appearance
+nav:
+  - docker_beginner.md
+

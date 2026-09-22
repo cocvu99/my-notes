@@ -1,0 +1,4 @@
+- Tìm hiểu về Helm chart
+- Triển khai monitor Prometheus – Grafana với Helm
+- ELK với Helm Chart
+- Triển khai 1 ứng dụng với Helm chart từ source code cho trước.

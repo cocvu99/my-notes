@@ -1,0 +1,5 @@
+title: Kubernetes      # Rename menu appearance
+nav:
+  - kubernetes_concept.md
+  - helm_chart.md
+
