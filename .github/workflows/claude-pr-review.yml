@@ -24,17 +24,26 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            Please review this pull request with a focus on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Security implications
-            - Performance considerations
+            This repo is a personal knowledge base: most changes are Markdown notes
+            (often written in Vietnamese). Review the changed content with a focus on:
+            - Technical accuracy (wrong or outdated statements, misleading simplifications)
+            - Missing context or important caveats a reader would need
+            - Clarity, structure, and consistent terminology
+            - Typos and Markdown formatting issues
+            For code files, also check correctness, security, and best practices.
+
+            Write your comments in the same language as the note being reviewed.
 
             Note: The PR branch is already checked out in the current working directory.
+            Use `gh pr diff` / `gh pr view` and the Read tool to inspect the changes.
 
-            Use `gh pr comment` for top-level feedback.
-            Use `mcp__github_inline_comment__create_inline_comment` (with `confirmed: true`) to highlight specific code issues.
+            How to post:
+            - For specific lines, use `mcp__github_inline_comment__create_inline_comment` (with `confirmed: true`).
+            - For the overall summary, first write it to `/tmp/review.md` with the Write tool, then run
+              `gh pr comment ${{ github.event.pull_request.number }} --body-file /tmp/review.md`.
+              Never pass the body inline with `--body`, `$(...)`, heredocs, or backticks.
+            - Always post a summary comment, even if you found no issues.
             Only post GitHub comments - don't submit review text as messages.
 
           claude_args: |
-            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
+            --allowedTools "Read,Glob,Grep,Write,mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
