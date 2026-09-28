@@ -15,6 +15,21 @@ Do vậy:
 
 # Khái niệm về Kubernetes
 
+
+## Kubernetes Không Phải là:
+
+K8s không phải là PaaS (Platform as a Service).
+
+Vì K8s hoạt động ở container level (không phải hardware level), nó có thể cung cấp các tính năng như deployment, scaling, load balancing; và người dùng có thể tích hợp các giải pháp logging, monitoring, alerting (Khá giống với 1 giải pháp PaaS). Tuy nhiên Kubernetes không phải là 1 hệ thống nguyên khối (monolithic), dù k8s cung cấp building blocks để xây developer platform, tuy nhiên các giải pháp mặc định đều tùy chọn, linh hoạt và có thể thay thế (và quyền lựa chọn thuộc về người sử dụng)
+
+**Kubernetes:**
+
+- **Không giới hạn loại ứng dụng được hỗ trợ:** stateless, stateful, hay data-processing workloads đều được. **Chạy được trên container là chạy được trên K8s**
+
+- **Không deploy source, cũng như không build app/build source:** Các việc như Continuous Integration, Delivery, hay Deployment (CI/CD) workflows thì được xác định văn hóa, tính ưu tiên và đặc điểm kỹ thuật của tổ chức, của công ty bạn. ===> K8s không liên quan. 
+
+- **Không cung cấp sẵn các service ở application-level:** ví dụ middleware (ví dụ như message buses), data-processing frameworks (ví dụ như, Spark), databases (ví dụ như, MySQL), caches, hay cluster storage systems (ví dụ như, Ceph) như built-in service. Chúng chạy trên K8s, và/hoặc được truy cập bởi các ứng dụng đang chạy trên Kubernetes, nhưng ***K8s không đóng gói sẵn chúng***
+
 # Triển khai cụm cluster K8s
 
 # Thực hành thao tác với cụm K8s
