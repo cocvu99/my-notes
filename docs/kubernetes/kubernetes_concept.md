@@ -18,7 +18,7 @@ Do vậy:
 
 ## Kubernetes Không Phải là:
 
-K8s không phải là PaaS (Platform as a Service).
+K8s không phải là một PaaS (Platform as a Service) toàn diện/truyền thống.
 
 Vì K8s hoạt động ở container level (không phải hardware level), nó có thể cung cấp các tính năng như deployment, scaling, load balancing; và người dùng có thể tích hợp các giải pháp logging, monitoring, alerting (Khá giống với 1 giải pháp PaaS). Tuy nhiên Kubernetes không phải là một hệ thống nguyên khối (monolithic). Dù K8s cung cấp các building blocks để xây developer platform, các giải pháp mặc định đều tùy chọn, linh hoạt và có thể thay thế (quyền lựa chọn thuộc về người dùng).
 
