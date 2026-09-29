@@ -12,9 +12,7 @@ Do vậy:
 
 - **Kubernetes sẽ giải quyết các bài toán về điều phối (orchestration) các container trên cluster:** Scheduling trên nhiều node, self-healing, Autoscaling (HPA, Cluster Autoscaler), ...
 
-
 # Khái niệm về Kubernetes
-
 
 ## Kubernetes Không Phải là:
 
