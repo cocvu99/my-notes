@@ -2,7 +2,7 @@ Linux Level 1
 
 ## Linux Boot Process (Quá trình khởi động của Linux)
 
-```mermaid
+```text
 [Power On]
     |
     v
