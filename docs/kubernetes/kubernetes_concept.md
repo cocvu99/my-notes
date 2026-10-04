@@ -28,6 +28,14 @@ Vì K8s hoạt động ở container level (không phải hardware level), nó c
 
 - **Không cung cấp sẵn các service ở application-level:** như middleware (message buses), data-processing framework (Spark), database (MySQL), cache, hay cluster storage system (Ceph) dưới dạng built-in service. Chúng chạy trên K8s, và/hoặc được truy cập bởi các ứng dụng đang chạy trên Kubernetes, nhưng ***K8s không đóng gói sẵn chúng***.
 
-# Triển khai cụm cluster K8s
+## Kubernetes Components:
 
-# Thực hành thao tác với cụm K8s
+*Dùng phương pháp Socrates để học*
+
+**Câu 1:** Một cluster gồm hai phần lớn nào? Liệt kê các component thuộc mỗi phần. Trong đó, component nào được docs đánh dấu (optional), và theo bạn, trong tình huống thực tế nào thì cluster không cần đến chúng?
+
+**Câu 2:** etcd lưu trữ cái gì? Trong số các component, ai là component duy nhất đọc/ghi trực tiếp vào etcd? Theo bạn, tại sao kiến trúc lại được thiết kế như vậy thay vì cho mọi component tự truy cập etcd?
+
+## Triển khai cụm cluster K8s
+
+## Thực hành thao tác với cụm K8s
