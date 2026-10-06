@@ -32,10 +32,28 @@ Vì K8s hoạt động ở container level (không phải hardware level), nó c
 
 *Dùng phương pháp Socrates để học*
 
+1. Recall Level
+
 **Câu 1:** Một cluster gồm hai phần lớn nào? Liệt kê các component thuộc mỗi phần. Trong đó, component nào được docs đánh dấu (optional), và theo bạn, trong tình huống thực tế nào thì cluster không cần đến chúng?
 
-**Câu 2:** etcd lưu trữ cái gì? Trong số các component, ai là component duy nhất đọc/ghi trực tiếp vào etcd? Theo bạn, tại sao kiến trúc lại được thiết kế như vậy thay vì cho mọi component tự truy cập etcd?
+**Câu 2:** etcd lưu trữ cái gì? Trong số các component, component nào là component duy nhất đọc/ghi trực tiếp vào etcd? Theo bạn, tại sao kiến trúc lại được thiết kế như vậy thay vì cho mọi component tự truy cập etcd?
+
+**Câu 3:** Phân biệt **Core Components** và **Addons.** DNS thuộc nhóm nào? Nếu cluster không cài DNS addon, một Pod gọi ```http://my-service``` sẽ gặp chuyện gì?
+
+2. Understanding Level
+
+```
+#TODO
+```
 
 ## Triển khai cụm cluster K8s
 
+```
+#TODO
+```
+
 ## Thực hành thao tác với cụm K8s
+
+```
+#TODO
+```
