@@ -34,26 +34,40 @@ Vì K8s hoạt động ở container level (không phải hardware level), nó c
 
 ### Level 1: Recall 
 
+---
+
 **Câu 1:** Một cluster gồm hai phần lớn nào? Liệt kê các component thuộc mỗi phần. Trong đó, component nào được docs đánh dấu (optional), và theo bạn, trong tình huống thực tế nào thì cluster không cần đến chúng?
+
+Trả lời: 
+
+1 Cluster gồm 2 thành phần lớn là 1 Control Plane Node và 1 (hoặc nhiều hơn 1) Worker Nodes.
+
+***Control Plane Node:*** *Quản lý trạng thái tổng thể của Cluster*
+
+- kube-apiserver: Cung cấp các HTTP API của Kubernetes.
+
+- etcd: Hệ thống lưu trữ dữ liệu dạng key-value của toàn bộ API server/cluster.
+
+- kube-scheduler: Theo dõi các Pod mới được tạo ra nhưng chưa được gắn vào node; Lựa chọn và gán các Pod đó vào node phù hợp để Pod hoạt động.
+
+- kube-controller-manager: Thực thi các controller-processes (các lệnh) để triển khai Kubernetes API behavior.
+
+- cloud-controller-manager **(Optional)**: Tích hợp các logic điều khiển dành riêng cho Cloud Provider (AWS, GCP, Azure...). Nếu chạy K8s trên môi trường on-premises hoặc trên máy tính cá nhân, thì cluster k8s sẽ không có thành phần này.
+
+---
 
 **Câu 2:** etcd lưu trữ cái gì? Trong số các component, component nào là component duy nhất đọc/ghi trực tiếp vào etcd? Theo bạn, tại sao kiến trúc lại được thiết kế như vậy thay vì cho mọi component tự truy cập etcd?
 
-**Câu 3:** Phân biệt **Core Components** và **Addons.** DNS thuộc nhóm nào? Nếu cluster không cài DNS addon, một Pod gọi `http://my-service` sẽ gặp chuyện gì? (gợi ý: domain `my-service` có resolve được không, và vẫn có thể gọi trực tiếp bằng ClusterIP không?)
+**Câu 3:** Phân biệt **Core Components** và **Addons**. DNS thuộc nhóm nào? Nếu cluster không cài DNS addon, một Pod gọi `http://my-service` sẽ gặp chuyện gì? (gợi ý: domain `my-service` có resolve được không, và vẫn có thể gọi trực tiếp bằng ClusterIP không?)
 
 ### Level 2: Understanding
 
-`
-#TODO
-`
+TODO
 
 ## Triển khai cụm cluster K8s
 
-`
-#TODO
-`
+TODO
 
 ## Thực hành thao tác với cụm K8s
 
-`
-#TODO
-`
+TODO
